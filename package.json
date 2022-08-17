@@ -1,0 +1,24 @@
+{
+  "name": "movie-project",
+  "version": "1.0.0",
+  "description": "This is a project about a whole database of movies and series, where you can search a new one!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OmarCL09/Movie-project.git"
+  },
+  "keywords": [
+    "Movies",
+    "Javascript",
+    "node"
+  ],
+  "author": "Omar Contreras <estebonte2@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/OmarCL09/Movie-project/issues"
+  },
+  "homepage": "https://github.com/OmarCL09/Movie-project#readme"
+}
