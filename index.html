@@ -11,19 +11,86 @@
 </head>
 <body>
     <header id="header" class="header-container">
-        <div class="header-title-container">
-            <h2>MSN</h2>
-        </div>
-        <div class="header-navigation-container">
-            <form id="searchForm" class="header-searchForm">
-                <button>
-                    <img src="./assets/search.svg" alt="Boton de lupa">
-                </button>
+        <div class="header-items-container">
+            <div class="header-title-container">
+                <h2>MSN</h2>
+            </div>
+            <div class="header-navigation-container">
+                <form id="searchForm" class="header-searchForm">
+                    <button class="button-search-movie">
+                        <img src="./assets/search.svg" alt="Boton de lupa">
+                    </button>
                 <input type="text" placeholder="Ej. Avengers Endgame">
             </form>
         </div>
+    </div>
     </header>
+    <section id="banner" class="movies-banner inactive">
+        <div class="banner-text-container">
+            <h2>Welcome to MSN</h2>
+            <h3>Your Movies and Series, NOW!</h3>
+            <p>Take an exploration to our page and see the most popular series of the day!</p>
+        </div>
+    </section>
+    <section id="movie-banner" class="movie-banner-section">
+        <div class="banner-title-movie">
+            <h2>The boys</h2>
+            <img src="./assets/star.png" alt="star">
+            <h4>9.5</h4>
+        </div>
+    </section>
+    <section id="trending" class="trending-container inactive">
+        <h3 class="trending-title-cont">Popular today <p>See more. <img src="./assets/next.svg"></p></h3>
+        <div class="trending-movies-container">
+        </div>
+    </section>
+    <section id="categories" class="categories-container inactive">
+        <h3>Categories</h3>
+        <div class="categories-list-cont">
+        </div>
+    </section>
+    <section id="movie" class="selected-movie-container inactive">
+        <div class="selected-movie-description inactive">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Eius nostrum sapiente non animi aspernatur blanditiis ducimus 
+                accusamus placeat laborum incidunt officia 
+                praesentium molestias totam atque doloribus magnam, magni porro? Dicta.
+            </p>
+        </div>
+    </section>
+    <section id="moreTrending" class="trending-more-container">
+        <h3 class="trendingmore-title-cont">Popular today</h3>
+        <div class="trending-more-movies-container">
+            <div class="trending-card">
+                <img src="./assets/the-boys-1.jpg" class="trending-movie-image">
+            </div>
+        </div>
+    </section>
+    <section id="searchedMovie" class="searched-movie-container inactive">
+        <h3 class="searched-title-cont">The boys</h3>
+        <div class="searched-movies-container">
+            <div class="searched-card">
+                <img src="./assets/the-boys-1.jpg" class="searched-movie-image">
+            </div>
+        </div>
+    </section>
+    <section id="category" class="category-movies-container inactive">
+        <h3 class="category-title-cont">Comedy & Romantical</h3>
+        <div class="category-movies-container-mini">
+            <div class="category-card">
+                <img src="./assets/the-boys-1.jpg" class="category-movie-image">
+            </div>
+        </div>
+    </section>
+    <button class="back-home-button">
+        <img src="./assets/back.svg">
+        <h3>Back</h3>
+    </button>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./js/nodes.js"></script>
     <script src="./js/key.js"></script>
     <script src="./js/main.js"></script>
+    <script src="./js/navigation.js"></script>
 </body>
 </html>
