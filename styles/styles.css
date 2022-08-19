@@ -74,6 +74,7 @@ body{
     text-align: left;
     background: #ffffffde;
     font-family: 'Lato', sans-serif;
+    color: var(--primary-color);
 }
 .header-searchForm input:focus-visible{
     outline: none;
@@ -84,15 +85,13 @@ body{
     width: 65%;
     height: 45vh;
     border-radius: 0px 0px 20px 20px;
-    background-image: linear-gradient(rgb(46 46 46 / 53%), rgb(0 0 0 / 93%)), url(../assets/portada.png);
     background-size: contain;
     background-attachment: fixed;
+    background-repeat: no-repeat;
     position: relative;
     overflow: hidden;
 }
-.movie-banner-section{
-    background-image: linear-gradient(rgb(46 46 46 / 53%), rgb(0 0 0 / 93%)), url('https://i0.wp.com/lascronicasdedeckard.com/wp-content/uploads/2019/08/The-Boys-Poster-Critica-Las-Cronicas-de-Deckard.jpg?fit=830%2C466&ssl=1');
-}
+
 .banner-text-container, .banner-title-movie{
     display: flex;
     font-family: 'Lato', sans-serif;
@@ -280,13 +279,13 @@ body{
     font-size: 1.5em;
     font-family: 'Lato', sans-serif;
 }
-.trending-more-movies-container, .searched-movies-container, .category-movies-container-mini{
+.trending-more-movies-container, .searched-movies-container, .category-movies-container-mini, .category-recommended{
     width: 100%;
     height: 35vh;
     margin-top: 1%;
 }
 /*--Back button--*/
-.back-home-button{
+.back-home-button, .preview-query-button{
     position: absolute;
     width: 9%;
     left: 3%;
@@ -300,12 +299,15 @@ body{
     top: 10%;
     transition: .2s;
 }
-.back-home-button:hover{
+.preview-query-button{
+    top: 20%;
+}
+.back-home-button:hover , .preview-query-button:hover{
     cursor: pointer;
     background-color: var(--primary-color);
     border: 1px solid var(--secondary-color);
 }
-.back-home-button img{
+.back-home-button img, .preview-query-button img{
     height: 40px;
 }
 

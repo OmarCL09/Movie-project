@@ -14,10 +14,21 @@ const welcomeBannerTitle = document.querySelector('.banner-text-container');
 const movieTitleBanner = document.querySelector('.banner-title-movie');
 const moviesHomeContainer = document.querySelector('.trending-movies-container');
 const categoriesHomeContainer = document.querySelector('.categories-list-cont');
+const ContainerOfTheMovieByCategory = document.querySelector('.category-movies-container-mini');
+const ContainerOfMoviesByQuery = document.querySelector('.searched-movies-container');
+const ContainerAllTrending = document.querySelector('.trending-more-movies-container');
+const recommendedCategories = document.querySelector('.category-recommended');
 
 //Objects of the page
 const searchMovieButton = document.querySelector('.button-search-movie');
 const descriptionOfTheMovie = document.querySelector('.selected-movie-description');
 const seeMoreTrendingMovies = document.querySelector('.trending-title-cont');
 const backButtonHome = document.querySelector('.back-home-button');
+const previewSearchButton = document.querySelector('.preview-query-button');
 const titleOfTheMainMovie = document.querySelector('.banner-title-movie');
+const titleOfTheCategory = document.querySelector('.category-title-cont');
+const inputToSearchMovie = document.querySelector('.input-movie');
+const titleOfSearchedMovie = document.querySelector('.searched-title-cont');
+const movieTitle = document.querySelector('.banner-movie-title');
+const movieScore = document.querySelector('.banner-movie-score');
+const movieDescription = document.querySelector('.selected-movie-description');

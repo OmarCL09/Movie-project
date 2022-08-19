@@ -20,7 +20,7 @@
                     <button class="button-search-movie">
                         <img src="./assets/search.svg" alt="Boton de lupa">
                     </button>
-                <input type="text" placeholder="Ej. Avengers Endgame">
+                <input type="text" placeholder="Ej. Avengers Endgame" class="input-movie">
             </form>
         </div>
     </div>
@@ -34,9 +34,9 @@
     </section>
     <section id="movie-banner" class="movie-banner-section">
         <div class="banner-title-movie">
-            <h2>The boys</h2>
+            <h2 class="banner-movie-title">The boys</h2>
             <img src="./assets/star.png" alt="star">
-            <h4>9.5</h4>
+            <h4 class="banner-movie-score">9.5</h4>
         </div>
     </section>
     <section id="trending" class="trending-container inactive">
@@ -58,34 +58,31 @@
                 praesentium molestias totam atque doloribus magnam, magni porro? Dicta.
             </p>
         </div>
+        <div class="category-recommended">
+        </div>
     </section>
     <section id="moreTrending" class="trending-more-container">
         <h3 class="trendingmore-title-cont">Popular today</h3>
         <div class="trending-more-movies-container">
-            <div class="trending-card">
-                <img src="./assets/the-boys-1.jpg" class="trending-movie-image">
-            </div>
         </div>
     </section>
     <section id="searchedMovie" class="searched-movie-container inactive">
         <h3 class="searched-title-cont">The boys</h3>
         <div class="searched-movies-container">
-            <div class="searched-card">
-                <img src="./assets/the-boys-1.jpg" class="searched-movie-image">
-            </div>
         </div>
     </section>
     <section id="category" class="category-movies-container inactive">
         <h3 class="category-title-cont">Comedy & Romantical</h3>
         <div class="category-movies-container-mini">
-            <div class="category-card">
-                <img src="./assets/the-boys-1.jpg" class="category-movie-image">
-            </div>
         </div>
     </section>
     <button class="back-home-button">
+        <img src="./assets/home.svg">
+        <h3>Home</h3>
+    </button>
+    <button class="preview-query-button inactive">
         <img src="./assets/back.svg">
-        <h3>Back</h3>
+        <h3>Preview</h3>
     </button>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./js/nodes.js"></script>

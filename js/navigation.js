@@ -1,11 +1,23 @@
+let historyArr = [];
+
+previewSearchButton.addEventListener("click", () => {
+  if (historyArr.length > 1) {
+    location.hash = historyArr[historyArr.length - 2];
+    historyArr.splice(-2,2);
+  } else {
+    historyArr.pop();
+    location.hash = "#home";
+  }
+});
 searchMovieButton.addEventListener('click', () => {
-    location.hash = '#search=';
+  location.hash = `#search=${inputToSearchMovie.value}`;
+  previewSearchButton.classList.remove('inactive');
 });
 seeMoreTrendingMovies.addEventListener('click', () => {
-    location.hash = '#trends';
+  location.hash = '#trends';
 });
 backButtonHome.addEventListener('click', () => {
-    location.hash = '#home';
+  location.hash = '#home';
 });
 
 window.addEventListener('DOMContentLoaded', navigator, false);
@@ -14,15 +26,32 @@ window.addEventListener('hashchange', navigator, false);
 function navigator() {
   if (location.hash.startsWith('#trends')) {
     trendsPage();
+    historyArr.push(location.hash);
+    previewSearchButton.classList.add('inactive');
   } else if (location.hash.startsWith('#search=')) {
     searchPage();
+    historyArr.push(location.hash);
+    previewSearchButton.classList.remove('inactive');
   } else if (location.hash.startsWith('#movie=')) {
     movieDetailsPage();
+    historyArr.push(location.hash);
+    previewSearchButton.classList.add('inactive');
   } else if (location.hash.startsWith('#category=')) {
     categoriesPage();
+    historyArr.push(location.hash);
+    previewSearchButton.classList.add('inactive');
   } else {
     homePage();
+    previewSearchButton.classList.add('inactive');
   }
+  function smoothscroll(){
+    const currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
+    if (currentScroll > 0) {
+          window.requestAnimationFrame(smoothscroll);
+          window.scrollTo (0,currentScroll - (currentScroll/5));
+    }
+  };
+  smoothscroll();
 }
 
 function homePage() {
@@ -57,6 +86,11 @@ function categoriesPage() {
   descriptionOfTheMovie.classList.add('inactive');
   containerOfTheSearchedMovie.classList.add('inactive');
   containerOfTheCategoryMovies.classList.remove('inactive');
+  const [_, categoryData] = location.hash.split('='); //['#category', 'id-name']
+  const [categoryId, categoryName] = categoryData.split('-');
+  titleOfTheCategory.innerHTML = categoryName;
+
+  getMoviesByCategory(categoryId);
 }
 
 function movieDetailsPage() {
@@ -73,6 +107,8 @@ function movieDetailsPage() {
   descriptionOfTheMovie.classList.remove('inactive');
   containerOfTheSearchedMovie.classList.add('inactive');
   containerOfTheCategoryMovies.classList.add('inactive');
+  const [_, movieId] = location.hash.split('='); //['#movie', 'id-movie']
+  getMovieById(movieId);
 }
 
 function searchPage() {
@@ -89,6 +125,10 @@ function searchPage() {
   descriptionOfTheMovie.classList.add('inactive');
   containerOfTheSearchedMovie.classList.remove('inactive');
   containerOfTheCategoryMovies.classList.add('inactive');
+
+  const [_, query] = location.hash.split('='); //['#search', 'query']
+  getMoviesByQuery(query);
+  titleOfSearchedMovie.innerHTML = `Because you searched '${query}'`;
 }
 
 function trendsPage() {
@@ -105,4 +145,5 @@ function trendsPage() {
   descriptionOfTheMovie.classList.add('inactive');
   containerOfTheSearchedMovie.classList.add('inactive');
   containerOfTheCategoryMovies.classList.add('inactive');
+  getAllTrendingMovies();
 }
