@@ -18,6 +18,7 @@ const ContainerOfTheMovieByCategory = document.querySelector('.category-movies-c
 const ContainerOfMoviesByQuery = document.querySelector('.searched-movies-container');
 const ContainerAllTrending = document.querySelector('.trending-more-movies-container');
 const recommendedCategories = document.querySelector('.category-recommended');
+const relatedMoviesContainer = document.querySelector('.recommended-movies-container');
 
 //Objects of the page
 const searchMovieButton = document.querySelector('.button-search-movie');

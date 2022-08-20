@@ -1,0 +1,101 @@
+/*--Responsive for height--*/
+@media (max-height: 810px) {
+    .trending-container{
+        height: 60vh;
+    }
+}
+@media (max-height: 615px) {
+    .header-container{
+        height: 10vh;
+    }
+    .header-title-container h2 {
+        font-size: 6vh;
+    }
+    .trending-container{
+        height: 80vh;
+    }
+    .categories-container{
+        height: 40vh;
+    }
+    .footer-container{
+        height: 20vh;
+    }
+    .movies-banner{
+        background-size: cover;
+        height: 65vh;
+    }
+    .movie-banner-section{
+        background-size: cover;
+    }
+}
+@media (max-height:500px){
+    .trending-container{
+        height: 95vh;
+    }
+}
+
+
+/*--Responsive for width--*/
+@media (max-width: 1495px){
+    .categories-container{
+        margin-bottom: 16%;
+    }
+}
+@media (max-width: 1400px){
+    .movies-banner{
+        width: 100%;
+    }
+    .trending-card{
+        width: 255px;
+    }
+}
+@media (max-width: 1250px){
+    .movies-banner{
+        background-size: cover;
+    }
+    .movie-banner-section{
+        background-size: cover;
+    }
+    .header-items-container{
+        width: 95%;
+    }
+}
+@media (max-width: 700px){
+    .trending-container{
+        width: 95%;
+    }
+    .categories-container{
+        width: 95%;
+        height: 54vh;
+        overflow-y: scroll;
+        margin-bottom: 0%;
+    }
+    .category{
+        padding: 4.5%;
+    }
+    .header-navigation-container{
+        width: 70%;
+    }
+    .banner-text-container p{
+        width: 80%;
+    }
+    .banner-text-container h3{
+        width: 80%;
+    }
+    .banner-text-container h2, .banner-title-movie h2 {
+        width: 80%;
+    }
+}
+@media(max-width:285px){
+    .trending-container h3{
+        font-size: 1.4em;
+    }
+}
+/*--Responsive for both sides--*/
+@media (max-height: 670px) and (max-width:350px) {
+    .trending-container {
+        height: 67vh;
+    }
+}
+
+/*--Responsive for specifics devices--*

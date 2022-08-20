@@ -7,6 +7,7 @@
     <title>Movies project</title>
     <link rel="stylesheet" href="./styles/reset.css">
     <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="./styles/responsive.css">
     <link rel="icon" href="./assets/icon.png">
 </head>
 <body>
@@ -38,44 +39,54 @@
             <img src="./assets/star.png" alt="star">
             <h4 class="banner-movie-score">9.5</h4>
         </div>
+        <div id="movie" class="selected-movie-container inactive">
+            <div class="selected-movie-description inactive">
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Eius nostrum sapiente non animi aspernatur blanditiis ducimus 
+                    accusamus placeat laborum incidunt officia 
+                    praesentium molestias totam atque doloribus magnam, magni porro? Dicta.
+                </p>
+            </div>
+            <div class="category-recommended">
+            </div>
+            <div id="recommended" class="selected-movie-recommendations">
+                <h5>Recommended movies</h5>
+                <div class="recommended-movies-container scrollStyle">
+
+                </div>
+            </div>
+        </div>
     </section>
-    <section id="trending" class="trending-container inactive">
+    <section id="trending" class="trending-container scrollStyle inactive">
         <h3 class="trending-title-cont">Popular today <p>See more. <img src="./assets/next.svg"></p></h3>
         <div class="trending-movies-container">
         </div>
     </section>
-    <section id="categories" class="categories-container inactive">
+    <section id="categories" class="categories-container scrollStyle inactive">
         <h3>Categories</h3>
         <div class="categories-list-cont">
         </div>
     </section>
-    <section id="movie" class="selected-movie-container inactive">
-        <div class="selected-movie-description inactive">
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Eius nostrum sapiente non animi aspernatur blanditiis ducimus 
-                accusamus placeat laborum incidunt officia 
-                praesentium molestias totam atque doloribus magnam, magni porro? Dicta.
-            </p>
-        </div>
-        <div class="category-recommended">
-        </div>
-    </section>
-    <section id="moreTrending" class="trending-more-container">
+    <section id="moreTrending" class="trending-more-container scrollStyle">
         <h3 class="trendingmore-title-cont">Popular today</h3>
         <div class="trending-more-movies-container">
         </div>
     </section>
-    <section id="searchedMovie" class="searched-movie-container inactive">
+    <section id="searchedMovie" class="searched-movie-container scrollStyle inactive">
         <h3 class="searched-title-cont">The boys</h3>
         <div class="searched-movies-container">
         </div>
     </section>
-    <section id="category" class="category-movies-container inactive">
+    <section id="category" class="category-movies-container scrollStyle inactive">
         <h3 class="category-title-cont">Comedy & Romantical</h3>
         <div class="category-movies-container-mini">
         </div>
     </section>
+    <footer id="footer" class="footer-container">
+        <h4>Made by Omar Contreras</h4>
+        <h4>2022</h4>
+    </footer>
     <button class="back-home-button">
         <img src="./assets/home.svg">
         <h3>Home</h3>

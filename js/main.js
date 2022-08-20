@@ -89,4 +89,11 @@ async function getMovieById(id){
     movieDescription.textContent = movie.overview;
     movieScore.textContent = movie.vote_average;
     putCategories(movie.genres, recommendedCategories);
+    getRelatedMoviesId(id);
+}
+
+async function getRelatedMoviesId(id){
+    const { data } = await api(`movie/${id}/similar`);
+    const relatedMovies = data.results;
+    putMovies(relatedMovies, relatedMoviesContainer);
 }
