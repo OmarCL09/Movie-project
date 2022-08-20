@@ -9,6 +9,11 @@ previewSearchButton.addEventListener("click", () => {
     location.hash = "#home";
   }
 });
+
+titleOfTheHeader.addEventListener('click', () => {
+  location.hash = '#home';
+});
+
 searchMovieButton.addEventListener('click', () => {
   location.hash = `#search=${inputToSearchMovie.value}`;
   previewSearchButton.classList.remove('inactive');

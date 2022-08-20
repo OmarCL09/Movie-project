@@ -1,7 +1,27 @@
 /*--Responsive for height--*/
+@media (max-height: 900px) {
+    .movie-banner-section{
+        background-size: cover;
+        height: 100vh;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+    .selected-movie-container{
+        height: 85%;
+    }
+    .recommended-movies-container div{
+        width: 215px;
+    }
+}
 @media (max-height: 810px) {
     .trending-container{
         height: 60vh;
+    }
+    .selected-movie-container{
+        height: 100%;
+    }
+    .recommended-movies-container div{
+        width: 138px !important;
     }
 }
 @media (max-height: 615px) {
@@ -36,6 +56,11 @@
 
 
 /*--Responsive for width--*/
+@media (max-width: 1650px){
+    .recommended-movies-container div{
+        width: 220px;
+    }
+}
 @media (max-width: 1495px){
     .categories-container{
         margin-bottom: 16%;
@@ -48,6 +73,39 @@
     .trending-card{
         width: 255px;
     }
+    .back-home-button, .preview-query-button{
+        width: fit-content;
+        padding: 1%;
+    }
+    .back-home-button h3, .preview-query-button h3{
+        display: none;
+    }
+}
+@media (max-width: 1280px){
+    .trending-more-container, .searched-movie-container{
+        width: 95%;
+        overflow-x: hidden;
+    }
+    .category-movies-container{
+        height: 100vh;
+        width: 100%;
+    }
+    .category-movies-container-mini{
+        width: 100%;
+        overflow-x: hidden;
+        height: 100%;
+    }
+    .preview-query-button{
+        top: 75%;
+        left: 3%;
+    }
+    .back-home-button {
+        top: 90%;
+        left: 3%;
+    }
+    .trending-more-movies-container div, .category-movies-container-mini div, .searched-movies-container div{
+        width: 150px;
+    }
 }
 @media (max-width: 1250px){
     .movies-banner{
@@ -58,6 +116,12 @@
     }
     .header-items-container{
         width: 95%;
+    }
+    .movie-banner-section{
+        width: 100%;
+    }
+    .rating{
+        bottom: 90%;
     }
 }
 @media (max-width: 700px){
@@ -85,6 +149,43 @@
     .banner-text-container h2, .banner-title-movie h2 {
         width: 80%;
     }
+    .rating{
+        width: 45%;
+        right: 46%;
+    }
+    .banner-title-movie h2{
+        font-size: 2em;
+    }
+    .selected-movie-description{
+        font-size: 1.2em;
+        margin-top: 10%;
+    }
+    .selected-movie-recommendations{
+        height: 75vh;
+    }
+}
+@media(max-width:400px){
+    .back-home-button {
+        top: 86%;
+        left: 3%;
+        padding: 3%;
+    }
+    .preview-query-button{
+        top: 75%;
+        left: 3%;
+        padding: 3%;
+    }
+}
+@media(max-width:350px){
+    .trending-more-movies-container div, .category-movies-container-mini div, .searched-movies-container div{
+        width: 250px;
+    }
+}
+@media(max-width:326px){
+    .rating{
+        right: -21%;
+        bottom: 63%;
+    }
 }
 @media(max-width:285px){
     .trending-container h3{
@@ -97,5 +198,3 @@
         height: 67vh;
     }
 }
-
-/*--Responsive for specifics devices--*

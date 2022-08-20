@@ -33,3 +33,4 @@ const titleOfSearchedMovie = document.querySelector('.searched-title-cont');
 const movieTitle = document.querySelector('.banner-movie-title');
 const movieScore = document.querySelector('.banner-movie-score');
 const movieDescription = document.querySelector('.selected-movie-description');
+const titleOfTheHeader = document.querySelector('.header-title-container');
