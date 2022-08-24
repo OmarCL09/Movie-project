@@ -8,6 +8,8 @@ const movieBannerComplete = document.querySelector('.movie-banner-section');
 const containerOfTheMovieDescription = document.querySelector('.selected-movie-container');
 const containerOfTheSearchedMovie = document.querySelector('.searched-movie-container');
 const containerOfTheCategoryMovies = document.querySelector('.category-movies-container');
+const containerOfLikedMovies = document.querySelector('.Favourite-movies-container');
+const mainLikedContainer = document.querySelector('#Favourite');
 
 //Divs of the page
 const welcomeBannerTitle = document.querySelector('.banner-text-container');

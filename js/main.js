@@ -1,3 +1,4 @@
+//Data
 const api = axios.create({
     baseURL: 'https://api.themoviedb.org/3/',
     headers: {
@@ -8,20 +9,88 @@ const api = axios.create({
     }
 });
 
+function likedMoviesList(){
+    const item = JSON.parse(localStorage.getItem('liked_movies'));
+    let movies;
+
+    if(item) {
+        movies = item;
+    } else{
+        movies = {};
+    }
+    return movies;
+}
+
+function likeMovie(movie){
+    const likedMovies = likedMoviesList();
+    if(likedMovies[movie.id]){
+        likedMovies[movie.id] = undefined;
+    } else {
+        likedMovies[movie.id] = movie;
+    }
+    localStorage.setItem('liked_movies', JSON.stringify(likedMovies))
+    if(location.hash == ''){
+        homePage();
+    }
+}
+
+
+
 //DRY Functions to put objects
-function putMovies(movies, container){
-    container.innerHTML = '';
+const lazyLoader = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            const url = entry.target.getAttribute('data-img');
+            entry.target.setAttribute('src', url);
+        }
+    } )
+});
+
+function putMovies(
+    movies,
+    container,
+    {
+      lazyLoading = false,
+      clean = true,
+    } = {},
+)   {
+    if (clean){
+        container.innerHTML = '';
+    }
     movies.forEach(movie => {
         const movieDiv = document.createElement('div');
         movieDiv.classList.add('trending-card');
-        movieDiv.addEventListener('click', () => {
-            location.hash = `#movie=${movie.id}`;
-        });
         const movieImg = document.createElement('img');
         movieImg.classList.add('trending-movie-image');
         movieImg.setAttribute('alt', movie.title);
-        movieImg.setAttribute('src', 'https://image.tmdb.org/t/p/w400' + movie.poster_path);
+        movieImg.setAttribute(
+            lazyLoading ? 'data-img' : 'src',
+            'https://image.tmdb.org/t/p/w400' + movie.poster_path);
+        movieImg.addEventListener('error', () => {
+            movieImg.setAttribute('src', '../assets/notfound.webp');
+        });
+        movieImg.addEventListener('click', () => {
+            location.hash = `#movie=${movie.id}`;
+        });
+        const movieBtn = document.createElement('button');
+        movieBtn.classList.add('movie-btn');
+
+
+
+        likedMoviesList()[movie.id] && movieBtn.classList.add('movie-btn--liked');
+
+
+        movieBtn.addEventListener('click', () =>{ 
+            movieBtn.classList.toggle('movie-btn--liked');
+            likeMovie(movie);
+            getLikedMovies();
+        })
+
+        if(lazyLoading){
+        lazyLoader.observe(movieImg);
+        }
         movieDiv.appendChild(movieImg);
+        movieDiv.appendChild(movieBtn);
         container.appendChild(movieDiv);
     })
 }
@@ -44,13 +113,13 @@ function putCategories(categories, container){
 async function getTrendingMoviesHome(){
     const { data } = await api('trending/movie/day');
     const movies = data.results;
-    putMovies(movies, moviesHomeContainer);
+    putMovies(movies, moviesHomeContainer, true);
 }
 
 async function getAllTrendingMovies(){
     const { data } = await api('trending/movie/day');
     const movies = data.results;
-    putMovies(movies, ContainerAllTrending);
+    putMovies(movies, ContainerAllTrending, {lazyLoading: true, clean: false});
 }
 
 async function getMoviesByCategory(id){
@@ -60,7 +129,7 @@ async function getMoviesByCategory(id){
         }
     });
     const movies = data.results;
-    putMovies(movies, ContainerOfTheMovieByCategory);
+    putMovies(movies, ContainerOfTheMovieByCategory, true);
 }
 
 async function getMoviesByQuery(query){
@@ -70,7 +139,7 @@ async function getMoviesByQuery(query){
         }
     });
     const movies = data.results;
-    putMovies(movies, ContainerOfMoviesByQuery);
+    putMovies(movies, ContainerOfMoviesByQuery, true);
 }
 
 async function getCategoriesHome(){
@@ -95,5 +164,12 @@ async function getMovieById(id){
 async function getRelatedMoviesId(id){
     const { data } = await api(`movie/${id}/similar`);
     const relatedMovies = data.results;
-    putMovies(relatedMovies, relatedMoviesContainer);
+    putMovies(relatedMovies, relatedMoviesContainer, true);
+}
+
+function getLikedMovies() {
+    const likedMovies = likedMoviesList();
+    const moviesArray = Object.values(likedMovies);
+
+    putMovies(moviesArray, containerOfLikedMovies, { lazyLoading: true, clean: true});
 }

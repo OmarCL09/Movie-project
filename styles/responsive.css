@@ -14,7 +14,7 @@
     }
 }
 @media (max-height: 810px) {
-    .trending-container{
+    .trending-container, .Favourite-container{
         height: 60vh;
     }
     .selected-movie-container{
@@ -31,7 +31,7 @@
     .header-title-container h2 {
         font-size: 6vh;
     }
-    .trending-container{
+    .trending-container, .Favourite-container{
         height: 80vh;
     }
     .categories-container{
@@ -49,7 +49,7 @@
     }
 }
 @media (max-height:500px){
-    .trending-container{
+    .trending-container, .Favourite-container{
         height: 95vh;
     }
 }
@@ -125,7 +125,7 @@
     }
 }
 @media (max-width: 700px){
-    .trending-container{
+    .trending-container, .Favourite-container{
         width: 95%;
     }
     .categories-container{
@@ -188,13 +188,13 @@
     }
 }
 @media(max-width:285px){
-    .trending-container h3{
+    .trending-container h3, .Favourite-container h3{
         font-size: 1.4em;
     }
 }
 /*--Responsive for both sides--*/
 @media (max-height: 670px) and (max-width:350px) {
-    .trending-container {
+    .trending-container, .Favourite-container {
         height: 67vh;
     }
 }

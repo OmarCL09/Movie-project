@@ -154,7 +154,7 @@ body::-webkit-scrollbar {
     letter-spacing: 1px;
 }
 /*--Trending movies--*/
-.trending-container{
+.trending-container, .Favourite-container{
     width: 65%;
     overflow-x: scroll;
     overflow-y: hidden;
@@ -175,19 +175,26 @@ body::-webkit-scrollbar {
     background-color: var(--secondary-color);
 }
 
-.trending-container h3{
+.trending-container h3, .Favourite-container h3{
     font-family: 'Lato', sans-serif;
     font-weight: bold;
     font-size: 1.6em;
     margin: 15px 0 0 0;
 }
-.trending-movies-container{
+.Favourite-container{
+    width: 65%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    height: 50vh;
+    margin-bottom: 10%;
+}
+.trending-movies-container, .Favourite-movies-container{
     width: 100%;
     height: 35vh;
     margin-top: 1%;
     white-space: nowrap;
 }
-.trending-card, .searched-card, .category-card{
+.trending-card, .searched-card, .category-card, .movie-loading{
     display: inline-block;
     width: 20%;
     height: 350px;
@@ -196,7 +203,13 @@ body::-webkit-scrollbar {
     align-items: end;
     overflow: hidden;
     margin-right: 2%;
+    background-size: cover;
     transition: .2s;
+}
+.movie-loading{
+    width: 230px;
+    height: 350px;
+    animation: loading-frame 1.5s infinite;
 }
 .trending-card:hover, .searched-card:hover, .category-card:hover{
     cursor: pointer;
@@ -205,6 +218,38 @@ body::-webkit-scrollbar {
 .trending-movie-image, .searched-movie-image, .category-movie-image{
     height: 100%;
     transform: scale(1.18);
+}
+.movie-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    bottom: 18%;
+    left: 76%;
+    background-image: url('../assets/unliked.svg');
+    background-color: var(--primary-color);
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    transition: .2s;
+}
+.movie-btn--liked{
+    background-image: url('../assets/liked.svg');
+    background-color: var(--secondary-color);
+    box-shadow: 0px 0px 15px 6px var(--primary-color);
+    animation: giro 1s;
+}
+@keyframes giro{
+    0%, 100%{
+        transform: rotate(0deg);
+    }
+    50%{
+        transform: rotate(70deg);
+    }
 }
 /*--Categories section--*/
 .categories-container{
@@ -238,6 +283,14 @@ body::-webkit-scrollbar {
     justify-content: center;
     align-items: center;
     font-family: 'Lato', sans-serif;
+}
+.category-loading{
+    height: 5%;
+    width: 100px;
+    padding: 1.5%;
+    border-radius: 20px;
+    margin: 3% 1% 0 0;
+    animation: loading-frame 1.5s infinite;
 }
 .category:hover{
     cursor: pointer;
@@ -405,5 +458,14 @@ body::-webkit-scrollbar {
 }
 .rating h4{
     margin: 0;
+}
+
+@keyframes loading-frame{
+    0%, 100%{
+        background-color: #464646;
+    }
+    50%{
+        background-color: #f07878;
+    }
 }
 

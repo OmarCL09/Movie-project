@@ -1,4 +1,5 @@
 let historyArr = [];
+let page = 1;
 
 previewSearchButton.addEventListener("click", () => {
   if (historyArr.length > 1) {
@@ -49,6 +50,7 @@ function navigator() {
     homePage();
     previewSearchButton.classList.add('inactive');
   }
+
   function smoothscroll(){
     const currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
     if (currentScroll > 0) {
@@ -73,8 +75,10 @@ function homePage() {
   descriptionOfTheMovie.classList.add('inactive');
   containerOfTheSearchedMovie.classList.add('inactive');
   containerOfTheCategoryMovies.classList.add('inactive');
+  mainLikedContainer.classList.remove('inactive');
   getCategoriesHome();
   getTrendingMoviesHome();
+  getLikedMovies();
 }
 
 function categoriesPage() {
@@ -91,6 +95,7 @@ function categoriesPage() {
   descriptionOfTheMovie.classList.add('inactive');
   containerOfTheSearchedMovie.classList.add('inactive');
   containerOfTheCategoryMovies.classList.remove('inactive');
+  mainLikedContainer.classList.add('inactive');
   const [_, categoryData] = location.hash.split('='); //['#category', 'id-name']
   const [categoryId, categoryName] = categoryData.split('-');
   titleOfTheCategory.innerHTML = categoryName;
@@ -112,6 +117,7 @@ function movieDetailsPage() {
   descriptionOfTheMovie.classList.remove('inactive');
   containerOfTheSearchedMovie.classList.add('inactive');
   containerOfTheCategoryMovies.classList.add('inactive');
+  mainLikedContainer.classList.add('inactive');
   const [_, movieId] = location.hash.split('='); //['#movie', 'id-movie']
   getMovieById(movieId);
 }
@@ -130,6 +136,7 @@ function searchPage() {
   descriptionOfTheMovie.classList.add('inactive');
   containerOfTheSearchedMovie.classList.remove('inactive');
   containerOfTheCategoryMovies.classList.add('inactive');
+  mainLikedContainer.classList.add('inactive');
 
   const [_, query] = location.hash.split('='); //['#search', 'query']
   getMoviesByQuery(query);
@@ -150,5 +157,6 @@ function trendsPage() {
   descriptionOfTheMovie.classList.add('inactive');
   containerOfTheSearchedMovie.classList.add('inactive');
   containerOfTheCategoryMovies.classList.add('inactive');
+  mainLikedContainer.classList.add('inactive');
   getAllTrendingMovies();
 }
